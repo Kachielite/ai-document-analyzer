@@ -47,6 +47,7 @@ class DocLoader:
         for d in docs:
             d.metadata = d.metadata or {}
             d.metadata.setdefault("source", os.path.basename(path))
+        print(f"Loaded {len(docs)} documents from {path}")
         return docs
 
     def split_docs(self, docs: List[Document]) -> List[Document]:
@@ -56,4 +57,8 @@ class DocLoader:
             chunk_overlap=self.chunk_overlap,
             separator="\n"
         )
-        return splitter.split_documents(docs)
+        if not docs:
+            raise ValueError("No documents to split. Please load documents first.")
+        docs = splitter.split_documents(docs)
+        print(f"Split into {len(docs)} chunks.")
+        return docs
