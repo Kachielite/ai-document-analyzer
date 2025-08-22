@@ -59,6 +59,6 @@ class DocLoader:
         )
         if not docs:
             raise ValueError("No documents to split. Please load documents first.")
-        docs = splitter.split_documents(docs)
-        print(f"Split into {len(docs)} chunks.")
-        return docs
+        splitted_docs = splitter.split_documents(docs)
+        print(f"Split into {len(splitted_docs)} chunks.")
+        return splitted_docs
