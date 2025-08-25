@@ -235,9 +235,6 @@ This is a learning project! Feel free to:
 - [Sentence Transformers](https://www.sbert.net/)
 - [Retrieval-Augmented Generation Paper](https://arxiv.org/abs/2005.11401)
 
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
