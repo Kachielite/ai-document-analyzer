@@ -1,5 +1,7 @@
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
+import shutil
+import os
 
 
 class Embedding:
@@ -7,6 +9,17 @@ class Embedding:
         self.model_name = model_name
         self.db_name = db_name
         self.embeddings = HuggingFaceEmbeddings(model_name=self.model_name)
+
+    def clear_vector_store(self):
+        """Clear the existing vector database directory and all its contents."""
+        try:
+            if os.path.exists(self.db_name):
+                shutil.rmtree(self.db_name)
+                print(f"✅ Cleared vector database: {self.db_name}")
+            else:
+                print(f"ℹ️ No existing vector database found at: {self.db_name}")
+        except Exception as e:
+            print(f"❌ Error clearing vector database: {str(e)}")
 
     def create_vector_store(self, documents):
         try:
