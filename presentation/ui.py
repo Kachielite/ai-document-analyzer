@@ -54,7 +54,7 @@ class DocChatApp:
             gr.Markdown("# 📄 DocChat with Embeddings + Visualization")
 
             with gr.Row():
-                file_input = gr.File(label="Upload a document", type="file")
+                file_input = gr.File(label="Upload a document", type="filepath")
 
             with gr.Row():
                 method_dropdown = gr.Dropdown(choices=["pca", "tsne"], value="pca", label="Reduction Method")
@@ -62,7 +62,7 @@ class DocChatApp:
                 visualize_btn = gr.Button("Visualize Embeddings")
 
             with gr.Row():
-                chatbot = gr.Chatbot(label="Chat with your document")
+                chatbot = gr.Chatbot(label="Chat with your document", type='messages')
                 msg = gr.Textbox(label="Ask a question")
                 clear = gr.Button("Clear")
 
