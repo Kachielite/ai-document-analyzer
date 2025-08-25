@@ -87,12 +87,12 @@ class DocChatApp:
     def launch(self):
         """Start the Gradio UI."""
         with gr.Blocks() as demo:
-            gr.Markdown("# 📄 DocChat with Embeddings + Visualization")
+            gr.Markdown("# 📄 AI Document Analyzer - RAG Learning Tool")
 
             with gr.Row():
                 # Left Column - File Upload and Visualization
                 with gr.Column(scale=1):
-                    gr.Markdown("### Document & Visualization")
+                    gr.Markdown("### Document Processing & Visualization")
 
                     # File upload
                     file_input = gr.File(label="Upload a document", type="filepath")
